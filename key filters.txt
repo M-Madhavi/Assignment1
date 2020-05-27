@@ -1,0 +1,60 @@
+> show collections
+customersinfo
+inventory
+student
+studentsinfo
+> db.customersinfo.find()
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdcf"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "red", "Black", "blue", "white" ], "brand" : "nike" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd0"), "itemid" : 251, "qnty" : 10, "sales" : 2555, "color" : [ "red", "white", "brown", "lavender" ], "brand" : "Gucci" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd1"), "itemid" : 260, "qnty" : 520, "sales" : 980, "color" : [ "pink", "skyblue", "yellow" ], "brand" : "chanel" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd2"), "itemid" : 870, "qnty" : 350, "sales" : 851, "color" : [ "green", "gray", "voilet" ], "brand" : "hermes" }
+> db.customersinfo.insert({"itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "glitter", "golden", "silver" ], "ratings":{"brand" : "louis vuitton","no":4.5 }})
+WriteResult({ "nInserted" : 1 })
+> db.customersinfo.find()
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdcf"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "red", "Black", "blue", "white" ], "brand" : "nike" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd0"), "itemid" : 251, "qnty" : 10, "sales" : 2555, "color" : [ "red", "white", "brown", "lavender" ], "brand" : "Gucci" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd1"), "itemid" : 260, "qnty" : 520, "sales" : 980, "color" : [ "pink", "skyblue", "yellow" ], "brand" : "chanel" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd2"), "itemid" : 870, "qnty" : 350, "sales" : 851, "color" : [ "green", "gray", "voilet" ], "brand" : "hermes" }
+{ "_id" : ObjectId("5ece5acfe17ab544a7055401"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "glitter", "golden", "silver" ], "ratings" : { "brand" : "louis vuitton", "no" : 4.5 } }
+> db.customersinfo.find( { color:["glitter","golden","silver"],"ratings.no" :4.5})
+{ "_id" : ObjectId("5ece5acfe17ab544a7055401"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "glitter", "golden", "silver" ], "ratings" : { "brand" : "louis vuitton", "no" : 4.5 } }
+> db.customersinfo.find({"itemid":{$lt:500}})
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdcf"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "red", "Black", "blue", "white" ], "brand" : "nike" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd0"), "itemid" : 251, "qnty" : 10, "sales" : 2555, "color" : [ "red", "white", "brown", "lavender" ], "brand" : "Gucci" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd1"), "itemid" : 260, "qnty" : 520, "sales" : 980, "color" : [ "pink", "skyblue", "yellow" ], "brand" : "chanel" }
+{ "_id" : ObjectId("5ece5acfe17ab544a7055401"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "glitter", "golden", "silver" ], "ratings" : { "brand" : "louis vuitton", "no" : 4.5 } }
+> db.customersinfo.find({"itemid":{$gt:500}})
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd2"), "itemid" : 870, "qnty" : 350, "sales" : 851, "color" : [ "green", "gray", "voilet" ], "brand" : "hermes" }
+> db.customersinfo.find({"color":{$all:["red","white"]})
+...
+...
+> db.customersinfo.find({"color":{$all:["red","white"]}})
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdcf"), "itemid" : 100, "qnty" : 150, "sales" : 1000, "color" : [ "red", "Black", "blue", "white" ], "brand" : "nike" }
+ db.customersinfo.find({"sales":{$lt:1000}})
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd1"), "itemid" : 260, "qnty" : 520, "sales" : 980, "color" : [ "pink", "skyblue", "yellow" ], "brand" : "chanel" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd2"), "itemid" : 870, "qnty" : 350, "sales" : 851, "color" : [ "green", "gray", "voilet" ], "brand" : "hermes" }
+
+
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd0"), "itemid" : 251, "qnty" : 10, "sales" : 2555, "color" : [ "red", "white", "brown", "lavender" ], "brand" : "Gucci" }
+> db.customersinfo.find({"sales":{ $gt: 900} } } )
+2020-05-27T18:07:32.300+0530 E  QUERY    [js] uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:45
+> db.customersinfo.find({"sales":{$lt:1000}})
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd1"), "itemid" : 260, "qnty" : 520, "sales" : 980, "color" : [ "pink", "skyblue", "yellow" ], "brand" : "chanel" }
+{ "_id" : ObjectId("5ece583c490ac82b1ce8bdd2"), "itemid" : 870, "qnty" : 350, "sales" : 851, "color" : [ "green", "gray", "voilet" ], "brand" : "hermes" }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
