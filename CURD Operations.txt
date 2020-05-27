@@ -1,0 +1,36 @@
+> db.studentsinfo.find()
+{ "_id" : ObjectId("5ece22cfcc8b91f3cdf213ee"), "rollno" : 1, "name" : "Anu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546321871" }
+{ "_id" : ObjectId("5ece22eacc8b91f3cdf213ef"), "rollno" : 2, "name" : "Bhanu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546625871" }
+{ "_id" : ObjectId("5ece2318cc8b91f3cdf213f0"), "rollno" : 3, "name" : "Chandu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9846625871" }
+{ "_id" : ObjectId("5ece233bcc8b91f3cdf213f1"), "rollno" : 4, "name" : "David", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9849885871" }
+{ "_id" : ObjectId("5ece2359cc8b91f3cdf213f2"), "rollno" : 5, "name" : "Elan", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9842541671" }
+> db.studentsinfo.insert({"rollno" :6,"name":"Flair","Course":"B.Tech","Address":"Canada","mno":"1252541671"})
+WriteResult({ "nInserted" : 1 })
+> db.studentsinfo.find()
+{ "_id" : ObjectId("5ece22cfcc8b91f3cdf213ee"), "rollno" : 1, "name" : "Anu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546321871" }
+{ "_id" : ObjectId("5ece22eacc8b91f3cdf213ef"), "rollno" : 2, "name" : "Bhanu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546625871" }
+{ "_id" : ObjectId("5ece2318cc8b91f3cdf213f0"), "rollno" : 3, "name" : "Chandu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9846625871" }
+{ "_id" : ObjectId("5ece233bcc8b91f3cdf213f1"), "rollno" : 4, "name" : "David", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9849885871" }
+{ "_id" : ObjectId("5ece2359cc8b91f3cdf213f2"), "rollno" : 5, "name" : "Elan", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9842541671" }
+{ "_id" : ObjectId("5ece2450557df60add136da9"), "rollno" : 6, "name" : "Flair", "Course" : "B.Tech", "Address" : "Canada", "mno" : "1252541671" }
+> db.studentsinfo.update({"rollno":5},{$set:{"name":"Tara"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.studentsinfo.find()
+{ "_id" : ObjectId("5ece22cfcc8b91f3cdf213ee"), "rollno" : 1, "name" : "Anu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546321871" }
+{ "_id" : ObjectId("5ece22eacc8b91f3cdf213ef"), "rollno" : 2, "name" : "Bhanu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546625871" }
+{ "_id" : ObjectId("5ece2318cc8b91f3cdf213f0"), "rollno" : 3, "name" : "Chandu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9846625871" }
+{ "_id" : ObjectId("5ece233bcc8b91f3cdf213f1"), "rollno" : 4, "name" : "David", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9849885871" }
+{ "_id" : ObjectId("5ece2359cc8b91f3cdf213f2"), "rollno" : 5, "name" : "Tara", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9842541671" }
+{ "_id" : ObjectId("5ece2450557df60add136da9"), "rollno" : 6, "name" : "Flair", "Course" : "B.Tech", "Address" : "Canada", "mno" : "1252541671" }
+> db.studentsinfo.({"rollno":6})
+2020-05-27T14:02:43.194+0530 E  QUERY    [js] uncaught exception: SyntaxError: missing name after . operator :
+@(shell):1:16
+> db.studentsinfo.remove({"rollno":6})
+WriteResult({ "nRemoved" : 1 })
+> db.studentsinfo.find()
+{ "_id" : ObjectId("5ece22cfcc8b91f3cdf213ee"), "rollno" : 1, "name" : "Anu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546321871" }
+{ "_id" : ObjectId("5ece22eacc8b91f3cdf213ef"), "rollno" : 2, "name" : "Bhanu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9546625871" }
+{ "_id" : ObjectId("5ece2318cc8b91f3cdf213f0"), "rollno" : 3, "name" : "Chandu", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9846625871" }
+{ "_id" : ObjectId("5ece233bcc8b91f3cdf213f1"), "rollno" : 4, "name" : "David", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9849885871" }
+{ "_id" : ObjectId("5ece2359cc8b91f3cdf213f2"), "rollno" : 5, "name" : "Tara", "Course" : "B.Tech", "Address" : "Hyd", "mno" : "9842541671" }
+>
